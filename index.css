@@ -1,0 +1,139 @@
+body{
+   background-image: url(crickett.jpg);
+    
+    color:#e22222;
+    font-size: 30px;
+    
+    
+    font-family:sans-serif;
+}
+
+.score{
+    color: rgb(251, 6, 6);
+    position: relative;
+    top: 20vh;
+}
+
+.message{
+    margin: 53m 0 2em;
+    text-align: center;
+    color: rgb(4, 0, 0);
+    font-size: 20px;
+    
+}
+.message button{
+    background:linear-gradient(217deg, rgba(246, 29, 29, 0.584),rgba(38, 255, 0, 0.488));
+    color:rgb(0, 6, 6);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 2px solid rgb(12, 0, 0);
+    padding: 1em 2em;
+    border-radius: 20px;
+    width: 150px;
+    white-space:nowrap;
+    cursor: pointer;
+    outline:none;
+    transition: 0.2s all linear;
+}
+
+.message button:hover{
+    background-color: rgba(0, 255, 255, 0.37);
+    border: 1px solid darkcyan;
+}
+
+.images{
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    height: 200px;
+    
+    
+}
+
+.computer img, .player img{
+    width: 200%;
+    position: relative;
+    top: 10vh;
+    right: 10vh;
+}
+
+.shakeComputer{
+    animation: shakeComputer 0.8s linear ;
+}
+.shakePlayer{
+    animation: shakePlayer 0.8s linear ;
+}
+
+.points{
+    margin: 2em 0;
+    text-align: center;
+}
+
+.computerPoints{
+    margin-left:3em;
+}
+.playrPoints{
+    margin-left:3em;
+}
+.options{
+    margin-top: 15em;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.options button { 
+    
+   
+    background:linear-gradient(217deg, rgba(246, 29, 29, 0.584),rgba(38, 255, 0, 0.488));
+    color:rgb(0, 6, 6);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 2px solid rgb(12, 0, 0);
+    padding: 1em 2em;
+    border-radius: 20px;
+    width: 150px;
+    white-space:nowrap;
+    cursor: pointer;
+    outline:none;
+    transition: 0.2s all linear;
+    
+}
+.options button:hover{
+    background-color: rgba(0, 255, 255, 0.37);
+    border: 1px solid darkcyan;
+}
+@keyframes shakeComputer{
+    0%{
+        transform: rotate(-20deg);
+    }
+    25%{
+        transform: rotate(20deg);
+    }
+    50%{
+        transform: rotate(-20deg);
+    }
+    75%{
+        transform: rotate(20deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes shakePlayer{
+    0%{
+        transform: rotate(20deg);
+    }
+    25%{
+        transform: rotate(-20deg);
+    }
+    50%{
+        transform: rotate(20deg);
+    }
+    75%{
+        transform: rotate(-20deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
