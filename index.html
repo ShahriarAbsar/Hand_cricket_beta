@@ -15,9 +15,7 @@
         <button onclick="toss()">Toss</button>
         <button onclick="playerChoice('Head')">Head</button>
         <button onclick="playerChoice('Tail')">Tail</button>
-    <div>
-        
-    </div>
+    
     <div id="result"></div>
     </div>
 
@@ -54,25 +52,7 @@
     </div>
     
 	<script>
-       let player = '';
-        function playerChoice(choice) {
-            player = choice;
-            document.getElementById('result').innerHTML = `Player chose ${player}`;
-        }
-        function toss() {
-            if(player === '') {
-                document.getElementById('result').innerHTML = 'Please select Head or Tail';
-                return;
-            }
-            const options = ["Head", "Tail"];
-            const result = options[Math.floor(Math.random() * options.length)];
-            document.getElementById('result').innerHTML += ` Toss result: ${result}`;
-            if(player === result) {
-                document.getElementById('result').innerHTML += '. Player wins!';
-            } else {
-                document.getElementById('result').innerHTML += '. Computer wins!';
-            }
-        }
+       
     </script>
     <script src="index.js"></script>
 </body>

@@ -7,13 +7,35 @@ const options = document.querySelectorAll(".options button");
 const winner = document.querySelector(".winner");
 
 const playerInput = parseInt(document.querySelectorAll(".options button"));
-const computerInput = Math.floor(Math.random() * 10) + 1;
+const computerInput = Math.floor(Math.random() * 6) + 1;
 const sum = playerInput + computerInput;
 
 // Initialize game variables
 let totalScore = 0;
 let computerScore = 0;
 let isPlayerPlaying = true;
+
+
+        function playerChoice(choice) {
+            player = choice;
+            document.getElementById('result').innerHTML = `Player chose ${player}`;
+        }
+        function toss() {
+            if(player === '') {
+                document.getElementById('result').innerHTML = 'Please select Head or Tail';
+                return;
+            }
+            const options = ["Head", "Tail"];
+            const result = options[Math.floor(Math.random() * options.length)];
+            document.getElementById('result').innerHTML += ` Toss result: ${result}`;
+            if(player === result) {
+                document.getElementById('result').innerHTML += '. Player wins!';
+            } else {
+                document.getElementById('result').innerHTML += '. Computer wins!';
+            }
+        }
+
+
 
 // Loop through each option button and attach a click event listener
 options.forEach((option) => {
@@ -78,8 +100,12 @@ options.forEach((option) => {
           winner.innerHTML = "Computer wins!";
         } 
       }
+
+      
       
 
     }, 100);
+
+    
   });
 });
