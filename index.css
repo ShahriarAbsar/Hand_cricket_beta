@@ -8,14 +8,30 @@ body{
     font-family:sans-serif;
 }
 
+
+
+.box{
+    position: absolute ;
+    left: 35%;
+    right: 35%;
+    border-radius: 30%;
+    
+    
+}
 .score{
-    color: rgb(251, 6, 6);
+    
+    background-color: rgba(0, 0, 0, 0.608);
+    padding: 10px;
+    color: rgb(251, 222, 6);
     position: relative;
     top: 20vh;
+    margin-left: 80px;
+    margin-right: 80px;
 }
 
+
 .message{
-    margin: 53m 0 2em;
+    margin: 60m 0 5em;
     text-align: center;
     color: rgb(4, 0, 0);
     font-size: 20px;

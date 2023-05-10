@@ -1,47 +1,85 @@
+// Get necessary elements from the HTML document
 const computer = document.querySelector(".computer img");
-      const player = document.querySelector(".player img");
-      const computerPoints = document.querySelector(".computerPoints");
-      const playerPoints = document.querySelector(".playerPoints");
-      const options = document.querySelectorAll(".options button");
+const player = document.querySelector(".player img");
+const computerPoints = document.querySelector(".computerPoints");
+const playerPoints = document.querySelector(".playerPoints");
+const options = document.querySelectorAll(".options button");
+const winner = document.querySelector(".winner");
 
-      let totalScore = 0;
+const playerInput = parseInt(document.querySelectorAll(".options button"));
+const computerInput = Math.floor(Math.random() * 10) + 1;
+const sum = playerInput + computerInput;
 
-      // Loop through each option button and add a click event listener to it
-      options.forEach((option) => {
-        option.addEventListener("click", () => {
-          // Add the shake animation classes to the computer and player images
-          computer.classList.add("shakeComputer");
-          player.classList.add("shakePlayer");
+// Initialize game variables
+let totalScore = 0;
+let computerScore = 0;
+let isPlayerPlaying = true;
 
-          // Wait 900 milliseconds (the duration of the shake animation)
-          setTimeout(() => {
-            // Remove the shake animation classes from the computer and player images
-            computer.classList.remove("shakeComputer");
-            player.classList.remove("shakePlayer");
-            
-            // Set the player's image source based on the option they chose
-            console.log(option.innerHTML);
-            player.src = "./" + option.innerHTML + "player.png";
+// Loop through each option button and attach a click event listener
+options.forEach((option) => {
+  option.addEventListener("click", () => {
+    // Add shake animation to computer and player images
+    computer.classList.add("shakeComputer");
+    player.classList.add("shakePlayer");
 
-            // Generate a random choice for the computer
-            const choice = ["1", "2", "3", "4", "5", "6"];
-            const computerChoice = choice[Math.floor(Math.random() * choice.length)];
-            computer.src = "./" + computerChoice + "computer.png";
-            if (option.innerHTML === computerChoice) {
-                gameOver();}
-            // Add the player's choice to their total score
-            totalScore += parseInt(option.innerHTML);
-            playerPoints.innerHTML = totalScore;
+    // Wait 900ms before executing the rest of the code
+    setTimeout(() => {
 
-            
-            
+      // Remove shake animation from computer and player images
+      computer.classList.remove("shakeComputer");
+      player.classList.remove("shakePlayer");
 
-            function gameOver() {
-                alert("out");
-                }
+      if (isPlayerPlaying) {
+        // If it's the player's turn, update the player image to the chosen option
+        player.src = "./" + option.innerHTML + "player.png";
 
+        // Choose a random option for the computer
+        const choice = ["1", "2", "3", "4", "5", "6"];
+        const computerChoice = choice[Math.floor(Math.random() * choice.length)];
+        computer.src = "./" + computerChoice + "computer.png";
 
+        // Check if the player's option matches the computer's option
+        if (option.innerHTML === computerChoice) {
+          alert("You're out!");
+          isPlayerPlaying = false;
+          isComputerPlaying = true;
+          return;
+        }
 
-          }, 900);
-        });
-      });
+        // Update the player's total score and display it on the page
+        totalScore += parseInt(option.innerHTML);
+        playerPoints.innerHTML = totalScore;
+      } else {
+        // If it's the computer's turn, choose a random option for the computer
+        const choice = ["1", "2", "3", "4", "5", "6"];
+        const computerChoice = choice[Math.floor(Math.random() * choice.length)];
+        computer.src = "./" + computerChoice + "computer.png";
+
+        // Check if the computer's option matches the player's option
+        if (option.innerHTML === computerChoice) {
+          alert("Computer is out!");
+          isComputerPlaying = true;
+          isPlayerPlaying = true;
+          computerScore = 0;
+          computerPoints.innerHTML = computerScore;
+          return;
+        }
+
+        // Update the computer's total score and display it on the page
+        computerScore += parseInt(computerChoice);
+        computerPoints.innerHTML = computerScore;
+      }
+
+      // Check if both players are out and determine the winner
+      if (!isPlayerPlaying) {
+        if (totalScore > computerScore) {
+          winner.innerHTML = "Player wins!";
+        } else if (computerScore > totalScore) {
+          winner.innerHTML = "Computer wins!";
+        } 
+      }
+      
+
+    }, 100);
+  });
+});

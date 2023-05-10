@@ -10,6 +10,18 @@
 </head>
 <body background="cricket.jpg">
     
+    <div class="message">
+        <h1>Toss</h1>
+        <button onclick="toss()">Toss</button>
+        <button onclick="playerChoice('Head')">Head</button>
+        <button onclick="playerChoice('Tail')">Tail</button>
+    <div>
+        
+    </div>
+    <div id="result"></div>
+    </div>
+
+
     <div class="container">
         <div class="message">
             <button type="button">Batting</button>
@@ -23,10 +35,12 @@
                 <img src="./1Player.png">
             </div>
         </div>
-        <div class="points">
-            <div class="score">
-                Computer <span class="computerPoints">0</span> ||
-                Player <span class="playerPoints">0</span>
+        <div class="box">
+            <div class="points">
+                <div class="score">
+                   Computer <span class="computerPoints">0</span> ||
+                    Player <span class="playerPoints">0</span>
+                </div>
             </div>
         </div>
         <div class="options">
@@ -38,7 +52,28 @@
             <button type="button">6</button>
         </div>
     </div>
-
+    
+	<script>
+       let player = '';
+        function playerChoice(choice) {
+            player = choice;
+            document.getElementById('result').innerHTML = `Player chose ${player}`;
+        }
+        function toss() {
+            if(player === '') {
+                document.getElementById('result').innerHTML = 'Please select Head or Tail';
+                return;
+            }
+            const options = ["Head", "Tail"];
+            const result = options[Math.floor(Math.random() * options.length)];
+            document.getElementById('result').innerHTML += ` Toss result: ${result}`;
+            if(player === result) {
+                document.getElementById('result').innerHTML += '. Player wins!';
+            } else {
+                document.getElementById('result').innerHTML += '. Computer wins!';
+            }
+        }
+    </script>
     <script src="index.js"></script>
 </body>
 </html>
