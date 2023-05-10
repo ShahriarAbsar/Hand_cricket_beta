@@ -104,7 +104,7 @@ options.forEach((option) => {
       
       
 
-    }, 100);
+    }, 800);
 
     
   });
