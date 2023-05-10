@@ -20,8 +20,10 @@ let isPlayerPlaying = true;
             player = choice;
             document.getElementById('result').innerHTML = `Player chose ${player}`;
         }
+        /** 
+        let player = '';
         function toss() {
-            if(player === '') {
+            if(play === '') {
                 document.getElementById('result').innerHTML = 'Please select Head or Tail';
                 return;
             }
@@ -33,8 +35,9 @@ let isPlayerPlaying = true;
             } else {
                 document.getElementById('result').innerHTML += '. Computer wins!';
             }
-        }
-
+        } 
+        */
+        
 
 
 // Loop through each option button and attach a click event listener
