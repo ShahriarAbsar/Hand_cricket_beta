@@ -1,3 +1,6 @@
+
+
+
 // Get necessary elements from the HTML document
 const computer = document.querySelector(".computer img");
 const player = document.querySelector(".player img");
